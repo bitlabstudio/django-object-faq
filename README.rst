@@ -1,7 +1,15 @@
 Django Object FAQ
-============
+=================
 
-A reusable Django app that allows to attach Q&As to any Django model instance
+A reusable Django app that allows to attach Q&As to any Django model instance.
+
+Currently the app provides the models for adding translated questions and 
+answers as well as a template tag to render them from a default template, you
+can of course override and customize according to your needs.
+
+Future updates might include forms, that allow users to send their own
+questions, but it is currently not implemented. Contributions are welcome =)
+
 
 Installation
 ------------
@@ -18,7 +26,6 @@ To get the latest commit from GitHub
 
     pip install -e git+git://github.com/bitmazk/django-object-faq.git#egg=object_faq
 
-TODO: Describe further installation steps (edit / remove the examples below):
 
 Add ``object_faq`` to your ``INSTALLED_APPS``
 
@@ -29,21 +36,11 @@ Add ``object_faq`` to your ``INSTALLED_APPS``
         'object_faq',
     )
 
-Add the ``object_faq`` URLs to your ``urls.py``
-
-.. code-block:: python
-
-    urlpatterns = patterns('',
-        ...
-        url(r'^object-faq/', include('object_faq.urls')),
-    )
-
 Before your tags/filters are available in your templates, load them by using
 
 .. code-block:: html
 
 	{% load object_faq_tags %}
-
 
 Don't forget to migrate your database
 
