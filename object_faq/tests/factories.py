@@ -1,4 +1,29 @@
 """Factories for the object_faq app."""
-# import factory
+from django.contrib.auth.models import User
+from django.contrib.contenttypes.models import ContentType
 
-# from ..models import YourModel
+import factory
+from django_libs.tests.factories import HvadFactoryMixin, UserFactory
+
+from ..models import Entry, GlobalObjectDescription
+
+
+class EntryFactory(HvadFactoryMixin, factory.DjangoModelFactory):
+    """Factory for the ``Entry`` model."""
+    FACTORY_FOR = Entry
+
+    object = factory.SubFactory(UserFactory)
+    content_type = ContentType.objects.get_for_model(User)
+    object_id = factory.LazyAttribute(lambda e: e.object.id)
+    question = factory.Sequence(lambda n: 'question {0}'.format(n))
+
+
+class GlobalObjectDescriptionFactory(HvadFactoryMixin,
+                                     factory.DjangoModelFactory):
+    """Factory for the ``GlobalObjectDescription`` model."""
+    FACTORY_FOR = GlobalObjectDescription
+
+    object = factory.SubFactory(UserFactory)
+    content_type = ContentType.objects.get_for_model(User)
+    object_id = factory.LazyAttribute(lambda e: e.object.id)
+    content = factory.Sequence(lambda n: 'content {0}'.format(n))

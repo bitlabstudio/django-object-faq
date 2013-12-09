@@ -38,6 +38,8 @@ dev_requires = [
 
 install_requires = [
     'django',
+    'django-hvad',
+    'south',
 ]
 
 
@@ -54,7 +56,8 @@ setup(
     long_description=read('README.rst'),
     license='The MIT License',
     platforms=['OS Independent'],
-    keywords='django, app, reusable, faq, frequently, generic, question, answer',
+    keywords=
+        'django, app, reusable, faq, frequently, generic, question, answer',
     author='Daniel Kaufhold',
     author_email='daniel.kaufhold@bitmazk.com',
     url="https://github.com/bitmazk/django-object-faq",
