@@ -1,11 +1,10 @@
 """Admin classes for the object_faq app."""
-# from django.contrib import admin
+from django.contrib import admin
 
-# from . import models
+from hvad.admin import TranslatableAdmin
+
+from .models import Entry, GlobalObjectDescription
 
 
-# class YourModelAdmin(admin.ModelAdmin):
-#    list_display = ['some', 'fields', ]
-#    search_fields = ['some', 'fieds', ]
-
-# admin.site.register(models.YourModel, YourModelAdmin)
+admin.site.register(Entry, TranslatableAdmin)
+admin.site.register(GlobalObjectDescription, TranslatableAdmin)

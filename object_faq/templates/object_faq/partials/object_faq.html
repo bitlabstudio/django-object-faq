@@ -1,0 +1,8 @@
+{% if globalobjectdescription %}
+    <h2>{{ globalobjectdescription.title }}</h2>
+    <p>{{ globalobjectdescription.content|linebreaks }}</p>
+{% endif %}
+{% for entry in faqs %}
+    <p><strong>{{ entry.question }}</strong></p>
+    <p>{{ entry.answer|linebreaks }}</p>
+{% endfor %}

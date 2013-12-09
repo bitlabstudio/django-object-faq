@@ -76,6 +76,9 @@ class GlobalObjectDescription(TranslatableModel):
         ),
     )
 
+    class Meta:
+        unique_together = ['content_type', 'object_id']
+
     def __unicode__(self):
         title = self.safe_translation_getter(
             'title', 'Title {0}'.format(self.pk))
