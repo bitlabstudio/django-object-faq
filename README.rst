@@ -52,8 +52,24 @@ Don't forget to migrate your database
 Usage
 -----
 
-TODO: Describe usage or point to docs. Also describe available settings and
-templatetags.
+In your django admin, you can create the ``Entry`` objects with questions and
+answers to be rendered on the page. ``position`` is the default ordering of the
+queryset.
+
+Additionally you can setup a ``GlobalObjectDescription`` object per model
+instance. This will render a general title and description, you might want to
+use as introductory text for the object's FAQ or just as general object
+description.
+
+Then you only need to add the template tag for the object in the context.
+.. code-block:: html
+
+	{% load object_faq_tags %}
+
+    {% render_faq_for_object myobject %}
+
+This will automatically render the tempalte located at
+``object_faq/partials/object_faq.html``.
 
 
 Contribute
